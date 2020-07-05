@@ -51,8 +51,6 @@ public class VerkhovnaRada
 		
 		String name = scan.next();
 		
-		Iterator<Party> iterator = this.parties.iterator();
-		
 		searchParty(name).showMembers();
 		
 	}
@@ -66,8 +64,6 @@ public class VerkhovnaRada
 		
 		String name = scan.next();
 		
-		Iterator<Party> iterator = this.parties.iterator();
-		
 		searchParty(name).extermination();
 		
 	}
@@ -80,9 +76,7 @@ public class VerkhovnaRada
 		Scanner scan = new Scanner(System.in);
 		
 		String name = scan.next();
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
+
 		searchParty(name).showTheBiggestBribeTaker();
 		
 	}
@@ -95,9 +89,7 @@ public class VerkhovnaRada
 		Scanner scan = new Scanner(System.in);
 		
 		String name = scan.next();
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
+
 		searchParty(name).showAllBribeTakers();
 		
 	}
@@ -110,9 +102,7 @@ public class VerkhovnaRada
 		Scanner scan = new Scanner(System.in);
 		
 		String name = scan.next();
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
+
 		searchParty(name).removeDeputy();
 		
 	}
@@ -125,9 +115,7 @@ public class VerkhovnaRada
 		Scanner scan = new Scanner(System.in);
 		
 		String name = scan.next();
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
+
 		searchParty(name).addDeputy();
 		
 	}
@@ -140,9 +128,7 @@ public class VerkhovnaRada
 		Scanner scan = new Scanner(System.in);
 		
 		String name = scan.next();
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
+
 		System.out.println(searchParty(name));
 	}
 	
