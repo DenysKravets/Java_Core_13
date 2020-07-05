@@ -25,6 +25,23 @@ public class VerkhovnaRada
 	
 	//Methods
 	
+	public Party searchParty(String name)
+	{
+		Iterator<Party> iterator = this.parties.iterator();
+		
+		while(iterator.hasNext())
+		{
+			Party party = iterator.next();
+			
+			if(party.getName().equals(name))
+			{
+				return party;
+			}
+		}
+		
+		return null;
+	}
+	
 	public void showTAllDeputiesInParty()
 	{
 		System.out.println("\nIn order to show you all deputies of the party please enter following information.");
@@ -36,15 +53,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.showMembers();
-			}
-		}
+		searchParty(name).showMembers();
 		
 	}
 	
@@ -59,15 +68,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.extermination();
-			}
-		}
+		searchParty(name).extermination();
 		
 	}
 	
@@ -82,15 +83,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.showTheBiggestBribeTaker();
-			}
-		}
+		searchParty(name).showTheBiggestBribeTaker();
 		
 	}
 	
@@ -105,15 +98,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.showAllBribeTakers();
-			}
-		}
+		searchParty(name).showAllBribeTakers();
 		
 	}
 	
@@ -128,15 +113,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.removeDeputy();
-			}
-		}
+		searchParty(name).removeDeputy();
 		
 	}
 	
@@ -151,15 +128,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				party.addDeputy();
-			}
-		}
+		searchParty(name).addDeputy();
 		
 	}
 	
@@ -174,15 +143,7 @@ public class VerkhovnaRada
 		
 		Iterator<Party> iterator = this.parties.iterator();
 		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				System.out.println(party);
-			}
-		}
+		System.out.println(searchParty(name));
 	}
 	
 	public void showParties()
