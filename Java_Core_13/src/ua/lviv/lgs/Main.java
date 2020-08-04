@@ -8,11 +8,12 @@ public class Main {
 	{
 		/*
 		Deputy po4ka = new Deputy(10, 10, "Ivan", "Ivanov", 10, true);
-		Deputy po4e4ka = new Deputy(10, 10, "Po4ka", "Ivanov", 10, false);
+		Deputy po4e4ka = new Deputy(10, 10, "Po4ka", "Ivanov", 10, true);
 
 		Party ka4ka = new Party("ka4ka");
 		
 		po4ka.setBribe(600);
+		po4e4ka.setBribe(300);
 		
 		ka4ka.addDeputy(po4e4ka);
 		ka4ka.addDeputy(po4e4ka);
@@ -25,23 +26,29 @@ public class Main {
 		
 		
 		ka4ka.showMembers();
+		System.out.println();
 		ka4ka.sortDeputyByBribe();
 		
-		System.out.println("\n\n\n\n");
+		ka4ka.showAllBribeTakers();
+		System.out.println();
+		
+		System.out.println("\nThe biggest bribetaker");
 		ka4ka.showTheBiggestBribeTaker();
 		
-		System.out.println("\n\n\n\n");
+		System.out.println();
 		
 		Party ko4ka = new Party("ko4ka");
 		
 		VerkhovnaRada verkhovnaRada = VerkhovnaRada.getInstance();
 		
-		verkhovnaRada.addParty();
-		verkhovnaRada.addDeputyToParty();
+
 		
 		verkhovnaRada.showParties();
 	
+		
 		*/
+		
+		
 		
 		VerkhovnaRada verkhovnaRada = VerkhovnaRada.getInstance();
 		

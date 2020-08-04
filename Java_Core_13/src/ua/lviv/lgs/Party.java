@@ -1,6 +1,7 @@
 package ua.lviv.lgs;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class Party 
 {
@@ -14,43 +15,24 @@ public class Party
 	
 	public void extermination()
 	{
-		Iterator<Deputy> iterator = this.deputies.iterator();
-		
-		while(iterator.hasNext())
-		{
-			iterator.next();
-			iterator.remove();
-		}
+		deputies = new ArrayList<Deputy>();
 	}
 	
 	public void showTheBiggestBribeTaker()
 	{
-		System.out.println(Collections.max(this.deputies, new DeputyBribeComparator()));
+		Stream<Deputy> stream = deputies.stream();
+		System.out.println(stream.max(new DeputyBribeComparator()).get());
 	}
 	
 	public void showAllBribeTakers()
 	{
-		Iterator<Deputy> iterator = this.deputies.iterator();
-		
-		while(iterator.hasNext())
-		{
-			Deputy deputy = iterator.next();
-			
-			if(deputy.isBribeTaker())
-			{
-				System.out.println(deputy);
-			}
-		}
+		Stream<Deputy> stream = deputies.stream();
+		stream.filter(Deputy::isBribeTaker).forEach(b -> System.out.println(b));
 	}
 	
 	public void showMembers()
 	{
-		Iterator<Deputy> iterator = this.deputies.iterator();
-		
-		while(iterator.hasNext())
-		{
-			System.out.println(iterator.next());
-		}
+		deputies.stream().forEach(b -> System.out.println(b));
 	}
 	
 	public void addDeputy(Deputy deputy)
@@ -83,7 +65,7 @@ public class Party
 	
 	public void sortDeputyByBribe()
 	{
-		Collections.sort(deputies, new DeputyBribeComparator());
+		deputies = (ArrayList<Deputy>) deputies.stream().sorted(new DeputyBribeComparator()).collect(Collectors.toList());
 	}
 	
 	public void removeDeputy()
@@ -97,18 +79,9 @@ public class Party
 		System.out.println("Enter surname: ");
 		String surname = scan.nextLine();
 		
-		
-		Iterator<Deputy> iterator = this.deputies.iterator();
-		
-		while(iterator.hasNext())
-		{
-			Deputy deputy = iterator.next();
-			if(deputy.getName().equals(name) && deputy.getSurname().equals(surname))
-			{
-				iterator.remove();
-				System.out.println("You successfully removed a deputy.");
-			}
-		}
+		deputies = (ArrayList<Deputy>) deputies.stream().
+				filter(b -> !(name.equals(b.getName()) && surname.equals(b.getSurname()))).
+				collect(Collectors.toList());
 	}
 	
 	public String getName()

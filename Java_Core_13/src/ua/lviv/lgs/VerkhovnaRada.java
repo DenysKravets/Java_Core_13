@@ -1,6 +1,7 @@
 package ua.lviv.lgs;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class VerkhovnaRada 
 {
@@ -27,19 +28,7 @@ public class VerkhovnaRada
 	
 	public Party searchParty(String name)
 	{
-		Iterator<Party> iterator = this.parties.iterator();
-		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			
-			if(party.getName().equals(name))
-			{
-				return party;
-			}
-		}
-		
-		return null;
+		return parties.stream().filter(b -> name.equals(b.getName())).findFirst().get();
 	}
 	
 	public void showTAllDeputiesInParty()
@@ -134,12 +123,7 @@ public class VerkhovnaRada
 	
 	public void showParties()
 	{
-		Iterator<Party> iterator = this.parties.iterator();
-		
-		while(iterator.hasNext())
-		{
-			System.out.println(iterator.next());
-		}
+		parties.stream().forEach(b -> System.out.println(b));
 	}
 	
 	public void addParty(Party party)
@@ -168,18 +152,6 @@ public class VerkhovnaRada
 		System.out.println("Enter name of the party: ");
 		String name = scan.next();
 		
-
-		
-		Iterator<Party> iterator = this.parties.iterator();
-		
-		while(iterator.hasNext())
-		{
-			Party party = iterator.next();
-			if(party.getName().equals(name))
-			{
-				iterator.remove();
-				System.out.println("You successfully removed a party.");
-			}
-		}
+		parties = (ArrayList<Party>) parties.stream().filter(b -> !(name.equals(b.getName()))).collect(Collectors.toList());
 	}
 }
